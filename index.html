@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Trees in Vienna</title>
+    <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="tree_locations.js"></script>
+    <script>
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(48.2082,16.3738)
+        var mapOptions = {
+          zoom: 10,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        i = 0;
+        var markers = [];
+        for ( pos in tree_locations ) {
+          i = i + 1;
+          var row = tree_locations[pos];
+  		    window.console && console.log(row);
+          var newLatlng = new google.maps.LatLng(row[0], row[1]);
+          var marker = new google.maps.Marker({
+              position: newLatlng,
+              map: map,
+              title: row[2]
+          });
+          markers.push(marker);
+        }
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  </head>
+  <body onload="initialize()">
+    <body onload="initialize()" style="margin: 35px">
+      <div id="map_canvas" style="height: 500px"></div>
+      <p><b>Tree Register of Vienna!</b></p>
+      <p>
+        This visualization of the tree register shows in addition to trees in streets also trees in parks and forest-like areas in Vienna.
+        The trees in streets are completely covered, as they serve the MA 42 as a work tool. The trees in parks and forest-like areas, however, are only partially recorded.
+        
+        To see the title of a marker, hover over the marker.
+        You can find the dataset on the <stong><a href="https://www.data.gv.at/katalog/dataset/stadt-wien_baumkatasterderstadtwien/resource/954b01c7-ae41-4833-b253-4b601b60933e
+">data.gv.at</a></stong> webite.
+      </p>
+    </body>
+</html>
