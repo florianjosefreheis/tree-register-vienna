@@ -9,7 +9,7 @@
 ### Tree register or tree locations of Vienna
 In addition to trees in streets, the tree register also includes trees in parks and forest-like areas in Vienna. The trees in streets are completely covered, as they serve the MA 42 as a work tool. The trees in parks and forest-like areas, however, are only partially recorded.
 
-### Tree locations visualised on Google maps
+### Visualizations
 
 **Tree locations visualised on Google maps**
 You can find a map with the trees of the dataset here:
@@ -18,6 +18,8 @@ You can find a map with the trees of the dataset here:
 **Tree species word cloud map based on species frequency**
 ![tree species word cloud](tree_species_word_cloud.png "Tree species word cloud")
 
+### Coursera course
 [Coursera Python Specialization](https://www.coursera.org/specializations/python)
 
+### Licence
 [MIT LICENCE](https://github.com/florianjosefreheis/tree_register_vienna/blob/master/LICENCE)
